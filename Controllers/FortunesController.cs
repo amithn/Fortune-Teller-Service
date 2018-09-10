@@ -31,7 +31,9 @@ namespace FortuneTellerService.Controllers
         public Fortune Random()
         {
             _logger?.LogInformation("GET api/fortunes/random");
-            return _fortunes.RandomFortune();
+            Fortune fortune = _fortunes.RandomFortune();
+            fortune.Text = fortune.Text.ToUpper();
+            return fortune;
         }
     }
 }
